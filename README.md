@@ -1,1 +1,1 @@
-# xpcs-simulation
+# saxs-xpcs-simulation
