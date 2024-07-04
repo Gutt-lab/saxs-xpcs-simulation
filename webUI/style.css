@@ -1,0 +1,42 @@
+h1{ 
+    color: green; 
+    text-align: center; 
+  } 
+
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.thumbnails{
+    display: flex;
+    justify-content:space-between;
+    align-items:flex-start;
+}
+
+.thumbnail{ 
+    width: 200px;
+    height: 200px;
+    background-color:aqua ;
+    margin: 50px; 
+    font-size: 150px; 
+    text-align: center;
+} 
+.thumbnail:hover{
+    cursor: pointer;
+    border: 2px solid black;
+}
+
+.metadata-board{
+    width: 100%;
+    height: 200px;
+    background-color:rgb(85, 101, 101) ;
+}
+
+button{ 
+    display: block; 
+    margin: 0 auto; 
+} 

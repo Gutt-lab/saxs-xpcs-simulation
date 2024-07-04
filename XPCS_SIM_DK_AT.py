@@ -36,6 +36,26 @@ def generate_frame(frame_index):
     saxs_image = calculate_saxs_fft(updated_particles, radii, Lx, Ly)
     
     return saxs_image
+    inner_radius = 10 # radius of the inner ring in pixels
+    width        =  8 # width in pixel of the q-rings
+    spacing      =  1 # spacing between q-rings in pixel
+    num_rings    = 10 # number of rings
+
+    imshape = frames[0].shape
+
+    # Specify the center position
+    y_center, x_center = frames[0].shape[0] // 2, frames[0].shape[1] // 2
+    center = (y_center, x_center)
+
+    xlim = (x_center-inner_radius-num_rings*(spacing+width),
+            x_center+inner_radius+num_rings*(spacing+width))
+    ylim = (y_center-inner_radius-num_rings*(spacing+width),
+            y_center+inner_radius+num_rings*(spacing+width))
+
+    edges = roi.ring_edges(inner_radius, width, spacing, num_rings) #calculate edges of rings
+    rings = roi.rings(edges, center, imshape)
+
+    ring_mask = rings # without beamstop
 
 
 # Function to initialize particle positions and radii
